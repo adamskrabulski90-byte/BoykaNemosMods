@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "boykadildo",
+  "version": "${version}",
+  "name": "BoykaDILDO",
+  "description": "Mod narzędziowy: Auto Drip oraz Trap Helper, z panelem ustawień.",
+  "authors": ["Ty"],
+  "contact": {},
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.boyka.dildo.BoykaDildoMod"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "1.21.4",
+    "fabric-api": "*"
+  }
+}
