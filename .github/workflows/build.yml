@@ -1,0 +1,36 @@
+name: Build BoykaNemosMods
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Pobierz kod
+        uses: actions/checkout@v6
+
+      - name: Ustaw Java 21
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Ustaw Gradle 8.11.1
+        uses: gradle/actions/setup-gradle@v6
+        with:
+          gradle-version: '8.11.1'
+
+      - name: Sprawdź Gradle
+        run: gradle --version
+
+      - name: Zbuduj moda
+        run: gradle build --no-daemon
+
+      - name: Prześlij plik JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: BoykaNemosMods-1.21.4
+          path: build/libs/*.jar
